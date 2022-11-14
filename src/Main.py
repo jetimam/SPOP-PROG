@@ -57,7 +57,7 @@ while(running):
 		dashboard_library.view_chosen()
 	elif choice == 'quit':
 		print('buh-bye')
-		break
+		running = False
 	else:
 		print('try again')
 		continue
