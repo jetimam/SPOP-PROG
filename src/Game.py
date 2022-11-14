@@ -1,10 +1,8 @@
 class Game():
-	def __init__(self, name) -> None:
+	def __init__(self, name:str, headers:list[str], data:list[str]) -> None:
 		self.name = name
-		self.headers, self.data = self.load()
+		self.headers = headers
+		self.data = data
 
 	def __repr__(self) -> str:
-		print(self.name)
-
-	def load(self) -> None:
-		pass
+		return self.name
