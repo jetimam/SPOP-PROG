@@ -16,3 +16,8 @@ class DashboardLibrary():
 
 	def remove_dashboard(self, index:int) -> None:
 		pass
+
+	def get_index(self, name:str) -> int:
+		for i in range(len(self.dashboards)):
+			if name == self.dashboards[i].game.name:
+				return i
