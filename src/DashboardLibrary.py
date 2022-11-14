@@ -5,6 +5,13 @@ class DashboardLibrary():
 		self.dashboards = dashboards
 		self.chosen = chosen
 
+	def __repr__(self) -> str:
+		str = ''
+		for dashboard in self.dashboards:
+			str += dashboard
+			str += '\n'
+		return str
+
 	def choose_dashboard(self) -> None:
 		pass
 
