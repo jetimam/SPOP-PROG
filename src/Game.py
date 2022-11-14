@@ -1,5 +1,5 @@
 class Game():
-	def __init__(self, name:str, headers:list[str], data:list[str]) -> None:
+	def __init__(self, name:str, headers, data) -> None:
 		self.name = name
 		self.headers = headers
 		self.data = data

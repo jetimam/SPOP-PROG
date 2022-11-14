@@ -1,7 +1,7 @@
 from Dashboard import Dashboard
 
 class DashboardLibrary():
-	def __init__(self, dashboards:list[Dashboard]=[], chosen:Dashboard=None) -> None:
+	def __init__(self, dashboards=[], chosen:Dashboard=None) -> None:
 		self.dashboards = dashboards
 		self.chosen = chosen
 

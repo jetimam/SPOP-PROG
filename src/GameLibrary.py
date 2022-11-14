@@ -1,7 +1,7 @@
 from Game import Game
 
 class GameLibrary():
-	def __init__(self, games:list[Game]=[]) -> None:
+	def __init__(self, games=[]) -> None:
 		self.games = games
 	
 	def __repr__(self) -> str:
