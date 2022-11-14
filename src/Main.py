@@ -9,7 +9,14 @@ they are playing they wish to see.
 File Contents: Main file where the program will be started.
 '''
 
+from DashboardLibrary import DashboardLibrary
+from Dashboard import Dashboard
+from GameLibrary import GameLibrary
+
 running = True
+dashboard_id = 0
+dashboard_library = DashboardLibrary()
+game_library = GameLibrary()
 menu_print = '''
 1. Add Game
 2. View Library
@@ -26,23 +33,28 @@ print('Welcome to the video game dashboard manager!')
 while(running):
 	choice = input(menu_print)
 	if choice == '1':
-		pass
+		name = input('What is the name of the game you want to add?')
+		game_library.add(name)
 	elif choice == '2':
-		pass
+		print(game_library)
 	elif choice == '3':
-		pass
+		name = input('What is the name of the game you want to remove?')
+		game_library.remove(name)
 	elif choice == '4':
-		pass
+		name = input('What is the name of the game you want to create a dashboard for?')
+		i = game_library.games.index(name)
+		dashboard_library.add(Dashboard(game_library[i], dashboard_id))
+		dashboard_id += 1
 	elif choice == '5':
 		pass
 	elif choice == '6':
-		pass
+		print(dashboard_library)
 	elif choice == '7':
-		pass
+		dashboard_library.choose()
 	elif choice == '8':
-		pass
+		dashboard_library.chosen.configure_filters()
 	elif choice == '9':
-		pass
+		dashboard_library.view_chosen()
 	elif choice == 'quit':
 		print('buh-bye')
 		break
