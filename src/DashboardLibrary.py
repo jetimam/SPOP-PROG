@@ -12,16 +12,16 @@ class DashboardLibrary():
 			str += '\n'
 		return str
 
-	def choose_dashboard(self) -> None:
+	def choose(self) -> None:
 		pass
 
 	def view_chosen(self) -> None:
 		print(self.chosen)
 
-	def add_dashboard(self, dashboard:Dashboard) -> None:
+	def add(self, dashboard:Dashboard) -> None:
 		pass
 
-	def remove_dashboard(self, index:int) -> None:
+	def remove(self, index:int) -> None:
 		pass
 
 	def get_index(self, name:str) -> int:

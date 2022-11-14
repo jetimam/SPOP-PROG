@@ -11,8 +11,8 @@ class GameLibrary():
 			str += '\n'
 		return str
 
-	def add_game(self, name:str) -> None:
+	def add(self, name:str) -> None:
 		pass
 
-	def remove_game(self, index:int) -> None:
+	def remove(self, index:int) -> None:
 		pass
