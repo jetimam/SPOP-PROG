@@ -1,6 +1,6 @@
 from Game import Game
 
-class Library():
+class GameLibrary():
 	def __init__(self, path:str) -> None:
 		self.games:list[Game] = []
 		self.path = path # the absolute path to the dir with the game data.
