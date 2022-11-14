@@ -24,25 +24,28 @@ menu_print = '''
 
 print('Welcome to the video game dashboard manager!')
 while(running):
-	choice = int(input(menu_print))
-	if choice == 1:
+	choice = input(menu_print)
+	if choice == '1':
 		pass
-	elif choice == 2:
+	elif choice == '2':
 		pass
-	elif choice == 3:
+	elif choice == '3':
 		pass
-	elif choice == 4:
+	elif choice == '4':
 		pass
-	elif choice == 5:
+	elif choice == '5':
 		pass
-	elif choice == 6:
+	elif choice == '6':
 		pass
-	elif choice == 7:
+	elif choice == '7':
 		pass
-	elif choice == 8:
+	elif choice == '8':
 		pass
-	elif choice == 9:
+	elif choice == '9':
 		pass
+	elif choice == 'quit':
+		print('buh-bye')
+		break
 	else:
 		print('try again')
 		continue
