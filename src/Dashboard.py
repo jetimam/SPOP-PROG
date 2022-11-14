@@ -1,9 +1,11 @@
 from Game import Game
+import random
 
 class Dashboard():
-	def __init__(self, game:Game, filters=[]) -> None:
+	def __init__(self, game:Game, id:int, filters=[]) -> None:
 		self.game = game
 		self.filters = filters
+		self.id = id
 
 	def __repr__(self) -> str:
 		pass
