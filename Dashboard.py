@@ -34,7 +34,7 @@ class Dashboard():
 		success = True
 		for i in range(len(indices)):
 			if not indices[i].isnumeric():
-				print('Invalid input. Do not enter letters, only numbers.')
+				print('Invalid input. Enter only numbers.')
 				success = False
 			indices[i] = int(indices[i])
 			if indices[i] > len(fields) or indices[i] < 1:
