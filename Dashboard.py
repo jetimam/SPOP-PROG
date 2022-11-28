@@ -31,16 +31,16 @@ class Dashboard():
 		[print(str(i+1) + ': ' + str(data[i])) for i in range(len(fields))]
 		indices = input().split()
 		[indices.pop(i) for i in range(len(indices)-1, 0, -1) if indices.count(indices[i]) > 1] #remove dupes
-		fail = False
+		success = True
 		for i in range(len(indices)):
 			if not indices[i].isnumeric():
 				print('Invalid input. Do not enter letters, only numbers.')
-				fail = True
+				success = False
 			elif indices[i] > len(fields) or indices[i] < 1:
 				print('Invalid input. Do not enter an index that is not mentioned above.')
-				fail = True
+				success = False
 			else:
 				indices[i] = int(indices[i])
-		if not fail:
+		if success:
 			self.filters = indices
 			print('Filters updated!')
