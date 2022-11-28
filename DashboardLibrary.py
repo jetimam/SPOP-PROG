@@ -41,7 +41,7 @@ class DashboardLibrary():
 	def add(self, dashboard:Dashboard) -> None:
 		pass
 
-	def remove(self, index:int) -> None:
+	def remove(self) -> None:
 		print('Please choose which dashboard you wish to remove.\n' + self)
 		s = input()
 		if not s.isnumeric():
