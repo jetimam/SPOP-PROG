@@ -1,6 +1,6 @@
 '''
-Date: 14/11/2022
-Time: 16:34
+Date: 28/11/2022
+Time: 12:30
 Author: Umut Ucak
 Product name: Video Game Dashboard Manager
 Project General Description: This project\'s aim is creating a customizable CLI video game 
@@ -17,8 +17,8 @@ running = True
 dashboard_id = 0
 dashboard_library = DashboardLibrary()
 game_library = GameLibrary()
-menu_print = '''
-1. Add Game
+
+menu_print = '''1. Add Game
 2. View Library
 3. Remove Game
 4. Create Dashboard
@@ -27,6 +27,7 @@ menu_print = '''
 7. Choose Dashboard
 8. Filter Current Dashboard\'s Contents
 9. View Dashboard
+10. Exit Program
 '''
 
 print('Welcome to the video game dashboard manager!')
@@ -42,11 +43,10 @@ while(running):
 		game_library.remove(name)
 	elif choice == '4':
 		name = input('What is the name of the game you want to create a dashboard for?')
-		i = game_library.games.index(name)
-		dashboard_library.add(Dashboard(game_library[i], dashboard_id))
+		dashboard_library.add(Dashboard(game_library[game_library.games.index(name)], dashboard_id))
 		dashboard_id += 1
 	elif choice == '5':
-		pass
+		dashboard_library.remove()
 	elif choice == '6':
 		print(dashboard_library)
 	elif choice == '7':
@@ -54,8 +54,8 @@ while(running):
 	elif choice == '8':
 		dashboard_library.chosen.configure_filters()
 	elif choice == '9':
-		dashboard_library.view_chosen()
-	elif choice == 'quit':
+		print(dashboard_library.chosen)
+	elif choice == '10':
 		print('buh-bye')
 		running = False
 	else:
