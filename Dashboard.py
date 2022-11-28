@@ -30,6 +30,7 @@ class Dashboard():
 		fields, data = self.import_data()
 		[print(str(i+1) + ': ' + str(data[i])) for i in range(len(fields))]
 		indices = input().split()
+		[indices.pop(i) for i in range(len(indices)-1, 0, -1) if indices.count(indices[i]) > 1] #remove dupes
 		for i in indices:
 			if type(i) == str:
 				print('Invalid input. Do not enter letters, only numbers.')
