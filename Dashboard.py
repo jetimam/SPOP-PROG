@@ -36,11 +36,10 @@ class Dashboard():
 			if not indices[i].isnumeric():
 				print('Invalid input. Do not enter letters, only numbers.')
 				success = False
-			elif indices[i] > len(fields) or indices[i] < 1:
+			indices[i] = int(indices[i])
+			if indices[i] > len(fields) or indices[i] < 1:
 				print('Invalid input. Do not enter an index that is not mentioned above.')
 				success = False
-			else:
-				indices[i] = int(indices[i])
 		if success:
 			self.filters = indices
 			print('Filters updated!')
