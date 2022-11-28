@@ -7,7 +7,7 @@ class Dashboard():
 		self.filters = filters #the indices if the fields we do not want to see
 		self.id = id
 
-	def import_data(self) -> tuple:
+	def import_data(self) -> tuple(list[str], list[str]):
 		with open('games/' + self.game, 'r') as csvfile:
 			csvreader = csv.reader(csvfile)
 			fields = next(csvreader)
@@ -31,10 +31,16 @@ class Dashboard():
 		[print(str(i+1) + ': ' + str(data[i])) for i in range(len(fields))]
 		indices = input().split()
 		[indices.pop(i) for i in range(len(indices)-1, 0, -1) if indices.count(indices[i]) > 1] #remove dupes
-		for i in indices:
-			if type(i) == str:
+		fail = False
+		for i in range(len(indices)):
+			if not indices[i].isnumeric():
 				print('Invalid input. Do not enter letters, only numbers.')
-			elif i > len(fields) or i < 1:
+				fail = True
+			elif indices[i] > len(fields) or indices[i] < 1:
 				print('Invalid input. Do not enter an index that is not mentioned above.')
+				fail = True
 			else:
-				self.filters = indices
+				indices[i] = int(indices[i])
+		if not fail:
+			self.filters = indices
+			print('Filters updated!')
