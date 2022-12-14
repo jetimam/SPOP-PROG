@@ -14,7 +14,7 @@ from Dashboard import Dashboard
 from GameLibrary import GameLibrary
 
 running = True
-dashboard_id = 0
+dashboard_id = 1
 dashboard_library = DashboardLibrary()
 game_library = GameLibrary()
 
@@ -34,17 +34,22 @@ print('Welcome to the video game dashboard manager!')
 while(running):
 	choice = input(menu_print)
 	if choice == '1':
-		name = input('What is the name of the game you want to add?')
+		name = input('What is the name of the game you want to add? ')
 		game_library.add(name)
 	elif choice == '2':
 		print(game_library)
 	elif choice == '3':
-		name = input('What is the name of the game you want to remove?')
-		game_library.remove(name)
+		name = input('What is the name of the game you want to remove? ')
+		game_library.remove(name) 
 	elif choice == '4':
-		name = input('What is the name of the game you want to create a dashboard for?')
-		dashboard_library.add(Dashboard(game_library[game_library.games.index(name)], dashboard_id))
-		dashboard_id += 1
+		id = int(input('What is the ID of the game you want to create a dashboard for? You can see the ID of a game by viewing the entire game library via using option 2 from the main menu. Enter 0 if you wish to go back and check: '))
+		if id == 0:
+			continue
+		try:
+			dashboard_library.add(Dashboard(game_library.games[id-1], dashboard_id))
+			dashboard_id += 1
+		except:
+			print('Invalid ID')
 	elif choice == '5':
 		dashboard_library.remove()
 	elif choice == '6':

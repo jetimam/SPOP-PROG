@@ -6,11 +6,10 @@ class GameLibrary():
 		self.games:list[Game] = games
 	
 	def __repr__(self) -> str:
-		str = ''
-		for game in self.games:
-			str += game
-			str += '\n'
-		return str
+		out = ''
+		for i in range(len(self.games)):
+			out += str(i+1) + ') ' + str(self.games[i]) + '\n'
+		return out
 
 	def add(self, name:str) -> None:
 		if name+'.csv' in listdir('games/'):

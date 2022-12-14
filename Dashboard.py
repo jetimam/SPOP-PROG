@@ -21,19 +21,15 @@ class Dashboard():
 		[print(str(i+1) + ') ' + str(self.game.data[i])) for i in range(len(self.game.fields))]
 		indices = input().split()
 		[indices.pop(i) for i in range(len(indices)-1, 0, -1) if indices.count(indices[i]) > 1] #remove dupes
-		success = True
 		for i in range(len(indices)):
 			if not indices[i].isnumeric():
 				print('Invalid input. Enter only numbers.')
-				success = False
-				break
+				return None
 			else:
 				indices[i] = int(indices[i])-1
 				if indices[i] > len(self.game.fields) or indices[i] < 1:
 					print('Invalid input. Do not enter an index that is not mentioned above.')
-					success = False
-					break
-		if success:
-			self.filters.clear()
-			[self.filters.append(i) for i in indices]
-			print('Filters updated!')
+					return None
+		indices.sort()
+		self.filters = indices
+		print('Filters updated!')

@@ -8,8 +8,8 @@ class Game():
 	def __repr__(self) -> str:
 		return self.name
 
-	def import_data(self) -> tuple(list[str], list[str]):
-		with open('games/' + self.name, 'r') as csvfile:
+	def import_data(self):
+		with open('games/' + self.name + '.csv', 'r') as csvfile:
 			csvreader = csv.reader(csvfile)
 			fields = next(csvreader)
 			data = next(csvreader)
