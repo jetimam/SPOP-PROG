@@ -7,40 +7,33 @@ class DashboardLibrary():
 
 	def __repr__(self) -> str:
 		out = ''
-		for i in range(len(self.dashboards)):
-			out += str(i+1) + ') ' + self.dashboards[i].game.name + '\n' + '  ID: ' + str(self.dashboards[i].id) + '\n' + '  Filters: ' + str(self.dashboards[i].filters) + '\n'
+		c = 1
+		for dashboard in self.dashboards:
+			out += str(c) + ') ' + str(dashboard) + '\n\n'
+			# out += str(i+1) + ') ' + self.dashboards[i].game.name + '\n' + '  ID: ' + str(self.dashboards[i].id) + '\n' + '  Filters: ' + str(self.dashboards[i].filters) + '\n'
 		return out
-		# str = ''
-		# c = 0
-		# for dashboard in self.dashboards:
-		# 	fields, _ = dashboard.import_data()
-		# 	fields_str = ''
-		# 	for i in range(fields):
-		# 		if i in dashboard.filters:
-		# 			fields_str += fields[i] + ' '
-		# 	str += str(c+1) + ') ' + 'Game: ' + dashboard.game + '\n' + 'Filters Applied: ' + fields_str + '\n'
-		# return str
 
 	def choose(self) -> None:
-		print('Please choose your main dashboard by entering the index of the dashboard you want.\n' + self)
+		print('Please choose your main dashboard by entering the index of the dashboard you want.\n' + str(self))
 		s = input()
 		if not s.isnumeric():
 			print('Invalid input. Enter only numbers.')
 		else:
 			s = int(s)-1
-			if s > len(self.dashboards) or s < 1:
+			if s >= len(self.dashboards) or s < 0:
 				print('Invalid input. Do not enter an index that is not mentioned above.')
 			else:
 				self.chosen = self.dashboards[s]
 				print('New dashboard chosen!')
 
 	def view_chosen(self) -> None:
-		fields, _ = self.chosen.import_data()
-		fields_str = ''
-		for i in range(fields):
-			if i in self.chosen.filters:
-				fields_str += fields[i] + ' '
-		print('Game: ' + self.chosen.game + '\n' + 'Filters Applied: ' + fields_str)
+		fields = self.chosen.game.fields
+		data = self.chosen.game.data
+		filter_indices = []
+		print('Game: ' + str(self.chosen.game) + '\n' + 'Latest Filtered Data:')
+		[filter_indices.append(i) for i in range(len(fields)) if i in self.chosen.filters]
+		filter_indices.sort()
+		[print(' # ' + fields[i] + ': ' + data[i]) for i in filter_indices]
 
 	def add(self, dashboard:Dashboard) -> None:
 		self.dashboards.append(dashboard)

@@ -42,10 +42,11 @@ while(running):
 		name = input('What is the name of the game you want to remove? ')
 		game_library.remove(name) 
 	elif choice == '4':
-		id = int(input('What is the ID of the game you want to create a dashboard for? You can see the ID of a game by viewing the entire game library via using option 2 from the main menu. Enter 0 if you wish to go back and check: '))
+		id = int(input('Please choose for which game you wish to create a dashboard for.\n' + str(game_library)))
 		if id == 0:
 			continue
 		try:
+			
 			dashboard_library.add(Dashboard(game_library.games[id-1], dashboard_id))
 			dashboard_id += 1
 		except:
@@ -59,7 +60,7 @@ while(running):
 	elif choice == '8':
 		dashboard_library.chosen.configure_filters()
 	elif choice == '9':
-		print(dashboard_library.chosen)
+		dashboard_library.view_chosen()
 	elif choice == '10':
 		print('buh-bye')
 		running = False
